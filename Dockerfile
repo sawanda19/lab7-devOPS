@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y gcc && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+# Render передає PORT через environment variable
+ENV PORT=5000
+ENV DEBUG=false
+
+EXPOSE $PORT
+
+CMD ["python", "api.py"]
