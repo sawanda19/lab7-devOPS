@@ -27,11 +27,7 @@ curl -X POST https://devops-231-akimov.onrender.com/calculate \
 | `DEBUG` | `false` | Debug вимкнено |
 | `SECRET_KEY` | `***` | Секретний ключ (в Render secrets) |
 
-## Безпека (підготовка до ЛР8)
-- ✅ Debug mode вимкнено (`DEBUG=false`)
-- ✅ Секрети через environment variables
-- ✅ Паролі не збережені у коді
-- ✅ Docker image готовий до security scan
+
 
 ## Структура
 ```
