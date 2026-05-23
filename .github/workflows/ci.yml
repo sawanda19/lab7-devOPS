@@ -35,3 +35,8 @@ jobs:
       run: |
         docker build -t devops-231-akimov .
         echo "Docker image зібрано успішно"
+
+    - name: Deploy to Render
+      run: |
+        curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
+        echo "Auto-deploy на Render запущено"
