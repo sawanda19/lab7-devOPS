@@ -36,6 +36,14 @@ jobs:
         docker build -t devops-231-akimov .
         echo "Docker image зібрано успішно"
 
+    - name: Security scan (Trivy)
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: devops-231-akimov
+        format: table
+        exit-code: '0'
+        severity: CRITICAL,HIGH
+
     - name: Deploy to Render
       run: |
         curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
